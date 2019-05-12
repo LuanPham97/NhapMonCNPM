@@ -69,6 +69,30 @@ LOCK TABLES `canbo` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `hinhphat`
+--
+
+DROP TABLE IF EXISTS `hinhphat`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `hinhphat` (
+  `MaHinhPhat` int(11) NOT NULL,
+  `TenHinhPhat` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
+  PRIMARY KEY (`MaHinhPhat`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `hinhphat`
+--
+
+LOCK TABLES `hinhphat` WRITE;
+/*!40000 ALTER TABLE `hinhphat` DISABLE KEYS */;
+INSERT INTO `hinhphat` VALUES (0,'tù có thời hạn'),(1,'tù chung thân'),(2,'tử hình');
+/*!40000 ALTER TABLE `hinhphat` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `khenthuong`
 --
 
@@ -239,12 +263,15 @@ CREATE TABLE `phamnhan` (
   `NgayVaoTu` datetime DEFAULT NULL,
   `NgayRaTuDuKien` datetime DEFAULT NULL,
   `ThanNhan` int(11) DEFAULT NULL,
+  `HinhPhat` int(11) DEFAULT NULL,
   PRIMARY KEY (`MaPhamNhan`),
   KEY `phamnhan_nangkhieu_idx` (`NangKhieu`),
   KEY `phamnhan_tinhtrangsuckhoe_idx` (`TinhTrangSucKhoe`),
   KEY `phamnhan_mucdophamtoi_idx` (`MucDoPhamToi`),
   KEY `phamnhan_mucdocaitao_idx` (`MucDoCaiTao`),
   KEY `phamnhan_thannhan_idx` (`ThanNhan`),
+  KEY `phamnhan_hinhphat_idx` (`HinhPhat`),
+  CONSTRAINT `phamnhan_hinhphat` FOREIGN KEY (`HinhPhat`) REFERENCES `hinhphat` (`MaHinhPhat`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `phamnhan_mucdocaitao` FOREIGN KEY (`MucDoCaiTao`) REFERENCES `mucdocaitao` (`MaMucDo`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `phamnhan_mucdophamtoi` FOREIGN KEY (`MucDoPhamToi`) REFERENCES `mucdophamtoi` (`MaMucDo`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `phamnhan_nangkhieu` FOREIGN KEY (`NangKhieu`) REFERENCES `nangkhieu` (`MaNangKhieu`) ON DELETE SET NULL ON UPDATE CASCADE,
@@ -350,4 +377,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-11 16:15:33
+-- Dump completed on 2019-05-12 21:53:24
