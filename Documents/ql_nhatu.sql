@@ -88,7 +88,7 @@ CREATE TABLE `hinhphat` (
 
 LOCK TABLES `hinhphat` WRITE;
 /*!40000 ALTER TABLE `hinhphat` DISABLE KEYS */;
-INSERT INTO `hinhphat` VALUES (0,'tù có thời hạn'),(1,'tù chung thân'),(2,'tử hình');
+INSERT INTO `hinhphat` VALUES (0,'tù có thời hạn'),(1,'tù chung thân'),(2,'tử hình'),(3,'tù treo');
 /*!40000 ALTER TABLE `hinhphat` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -254,7 +254,7 @@ CREATE TABLE `phamnhan` (
   `MaPhamNhan` int(11) NOT NULL AUTO_INCREMENT,
   `TenPhamNhan` varchar(50) CHARACTER SET utf8 NOT NULL,
   `DiaChi` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
-  `TinhTrangSucKhoe` varchar(3) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `TinhTrangSucKhoe` int(11) DEFAULT NULL,
   `MucDoPhamToi` int(10) DEFAULT NULL,
   `NgayKTDinhKy` datetime DEFAULT NULL,
   `GapNguoiThan` bit(1) DEFAULT NULL,
@@ -266,18 +266,18 @@ CREATE TABLE `phamnhan` (
   `HinhPhat` int(11) DEFAULT NULL,
   PRIMARY KEY (`MaPhamNhan`),
   KEY `phamnhan_nangkhieu_idx` (`NangKhieu`),
-  KEY `phamnhan_tinhtrangsuckhoe_idx` (`TinhTrangSucKhoe`),
   KEY `phamnhan_mucdophamtoi_idx` (`MucDoPhamToi`),
   KEY `phamnhan_mucdocaitao_idx` (`MucDoCaiTao`),
   KEY `phamnhan_thannhan_idx` (`ThanNhan`),
   KEY `phamnhan_hinhphat_idx` (`HinhPhat`),
+  KEY `phamnhan_tinhtrangsuckhoe_idx` (`TinhTrangSucKhoe`),
   CONSTRAINT `phamnhan_hinhphat` FOREIGN KEY (`HinhPhat`) REFERENCES `hinhphat` (`MaHinhPhat`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `phamnhan_mucdocaitao` FOREIGN KEY (`MucDoCaiTao`) REFERENCES `mucdocaitao` (`MaMucDo`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `phamnhan_mucdophamtoi` FOREIGN KEY (`MucDoPhamToi`) REFERENCES `mucdophamtoi` (`MaMucDo`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `phamnhan_nangkhieu` FOREIGN KEY (`NangKhieu`) REFERENCES `nangkhieu` (`MaNangKhieu`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `phamnhan_thannhan` FOREIGN KEY (`ThanNhan`) REFERENCES `thannhan` (`MaThanNhan`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `phamnhan_tinhtrangsuckhoe` FOREIGN KEY (`TinhTrangSucKhoe`) REFERENCES `tinhtrangsuckhoe` (`MaTinhTrang`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -286,6 +286,7 @@ CREATE TABLE `phamnhan` (
 
 LOCK TABLES `phamnhan` WRITE;
 /*!40000 ALTER TABLE `phamnhan` DISABLE KEYS */;
+INSERT INTO `phamnhan` VALUES (2,'Luan',NULL,1,1,'2019-05-13 00:00:00','',1,NULL,NULL,NULL,1,3);
 /*!40000 ALTER TABLE `phamnhan` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -313,7 +314,7 @@ CREATE TABLE `taikhoan` (
 
 LOCK TABLES `taikhoan` WRITE;
 /*!40000 ALTER TABLE `taikhoan` DISABLE KEYS */;
-INSERT INTO `taikhoan` VALUES ('admin','admin','Admin',0);
+INSERT INTO `taikhoan` VALUES ('admin','admin','Admin',0),('tn01','123','thân nhân 01',7);
 /*!40000 ALTER TABLE `taikhoan` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -332,7 +333,7 @@ CREATE TABLE `thannhan` (
   PRIMARY KEY (`MaThanNhan`),
   KEY `thannhan_taikhoan_idx` (`TenDangNhap`),
   CONSTRAINT `thannhan_taikhoan` FOREIGN KEY (`TenDangNhap`) REFERENCES `taikhoan` (`TenDangNhap`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -341,6 +342,7 @@ CREATE TABLE `thannhan` (
 
 LOCK TABLES `thannhan` WRITE;
 /*!40000 ALTER TABLE `thannhan` DISABLE KEYS */;
+INSERT INTO `thannhan` VALUES (1,'Luan\'s thân nhân',NULL,'tn01');
 /*!40000 ALTER TABLE `thannhan` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -352,7 +354,7 @@ DROP TABLE IF EXISTS `tinhtrangsuckhoe`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `tinhtrangsuckhoe` (
-  `MaTinhTrang` varchar(3) COLLATE utf8_unicode_ci NOT NULL,
+  `MaTinhTrang` int(11) NOT NULL,
   `TenTinhTrang` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
   `MoTa` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
   PRIMARY KEY (`MaTinhTrang`)
@@ -365,6 +367,7 @@ CREATE TABLE `tinhtrangsuckhoe` (
 
 LOCK TABLES `tinhtrangsuckhoe` WRITE;
 /*!40000 ALTER TABLE `tinhtrangsuckhoe` DISABLE KEYS */;
+INSERT INTO `tinhtrangsuckhoe` VALUES (1,'Bình thường',NULL),(2,'Sốt',NULL),(3,'Ho',NULL),(4,'Suy nhược',NULL);
 /*!40000 ALTER TABLE `tinhtrangsuckhoe` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -377,4 +380,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-12 21:53:24
+-- Dump completed on 2019-05-13 22:24:53
