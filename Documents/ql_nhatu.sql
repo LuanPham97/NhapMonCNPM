@@ -35,6 +35,7 @@ CREATE TABLE `bophan` (
 
 LOCK TABLES `bophan` WRITE;
 /*!40000 ALTER TABLE `bophan` DISABLE KEYS */;
+INSERT INTO `bophan` VALUES ('cd','cấp dưỡng'),('ct','cải tạo'),('qg','quản giáo'),('qly','quản lý'),('tnp','tiếp nhận và phóng thích'),('yte','y tế');
 /*!40000 ALTER TABLE `bophan` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -46,7 +47,7 @@ DROP TABLE IF EXISTS `canbo`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `canbo` (
-  `MaCanBo` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `MaCanBo` int(11) NOT NULL AUTO_INCREMENT,
   `HoTen` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
   `SDT` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   `BoPhan` varchar(3) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -56,7 +57,7 @@ CREATE TABLE `canbo` (
   KEY `canbo_tendangnhap_idx` (`TenDangNhap`),
   CONSTRAINT `canbo_bophan` FOREIGN KEY (`BoPhan`) REFERENCES `bophan` (`MaBoPhan`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `canbo_taikhoan` FOREIGN KEY (`TenDangNhap`) REFERENCES `taikhoan` (`TenDangNhap`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -65,6 +66,7 @@ CREATE TABLE `canbo` (
 
 LOCK TABLES `canbo` WRITE;
 /*!40000 ALTER TABLE `canbo` DISABLE KEYS */;
+INSERT INTO `canbo` VALUES (1,'luan',NULL,'qly','cb01');
 /*!40000 ALTER TABLE `canbo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -102,7 +104,7 @@ DROP TABLE IF EXISTS `khenthuong`;
 CREATE TABLE `khenthuong` (
   `MaKhenThuong` varchar(3) COLLATE utf8_unicode_ci NOT NULL,
   `TenKhenThuong` varchar(30) CHARACTER SET utf8 DEFAULT NULL,
-  `SoNamDuocGiam` int(11) DEFAULT NULL COMMENT 'số năm được giảm án tù',
+  `SoThangDuocGiam` int(11) DEFAULT NULL COMMENT 'số tháng được giảm án tù',
   PRIMARY KEY (`MaKhenThuong`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -113,6 +115,7 @@ CREATE TABLE `khenthuong` (
 
 LOCK TABLES `khenthuong` WRITE;
 /*!40000 ALTER TABLE `khenthuong` DISABLE KEYS */;
+INSERT INTO `khenthuong` VALUES ('ctt','cải tạo tốt',2);
 /*!40000 ALTER TABLE `khenthuong` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -126,10 +129,10 @@ DROP TABLE IF EXISTS `khenthuong_phamnhan`;
 CREATE TABLE `khenthuong_phamnhan` (
   `MaKhenThuong` varchar(3) COLLATE utf8_unicode_ci NOT NULL,
   `MaPhamNhan` int(11) NOT NULL,
-  `CanBoDeNghi` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `CanBoDeNghi` int(11) DEFAULT NULL,
   PRIMARY KEY (`MaKhenThuong`,`MaPhamNhan`),
-  KEY `ktpn_canbo_idx` (`CanBoDeNghi`),
   KEY `ktpn_phannhan_idx` (`MaPhamNhan`),
+  KEY `ktpn_canbo_idx` (`CanBoDeNghi`),
   CONSTRAINT `ktpn_canbo` FOREIGN KEY (`CanBoDeNghi`) REFERENCES `canbo` (`MaCanBo`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `ktpn_khenthuong` FOREIGN KEY (`MaKhenThuong`) REFERENCES `khenthuong` (`MaKhenThuong`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `ktpn_phannhan` FOREIGN KEY (`MaPhamNhan`) REFERENCES `phamnhan` (`MaPhamNhan`) ON DELETE CASCADE ON UPDATE CASCADE
@@ -240,6 +243,7 @@ CREATE TABLE `nangkhieu` (
 
 LOCK TABLES `nangkhieu` WRITE;
 /*!40000 ALTER TABLE `nangkhieu` DISABLE KEYS */;
+INSERT INTO `nangkhieu` VALUES ('dan','chơi đàn',NULL),('hat','ca hát',NULL),('kch','kể chuyện',NULL),('mc','làm MC',NULL);
 /*!40000 ALTER TABLE `nangkhieu` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -286,7 +290,7 @@ CREATE TABLE `phamnhan` (
 
 LOCK TABLES `phamnhan` WRITE;
 /*!40000 ALTER TABLE `phamnhan` DISABLE KEYS */;
-INSERT INTO `phamnhan` VALUES (2,'Luan',NULL,1,1,'2019-05-13 00:00:00','',1,NULL,NULL,NULL,1,3);
+INSERT INTO `phamnhan` VALUES (2,'Luan',NULL,1,1,'2019-05-13 00:00:00','',1,'hat',NULL,NULL,1,3);
 /*!40000 ALTER TABLE `phamnhan` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -314,7 +318,7 @@ CREATE TABLE `taikhoan` (
 
 LOCK TABLES `taikhoan` WRITE;
 /*!40000 ALTER TABLE `taikhoan` DISABLE KEYS */;
-INSERT INTO `taikhoan` VALUES ('admin','admin','Admin',0),('tn01','123','thân nhân 01',7);
+INSERT INTO `taikhoan` VALUES ('admin','admin','Admin',0),('cb01','123','cán bộ 01',5),('tn01','123','thân nhân 01',7);
 /*!40000 ALTER TABLE `taikhoan` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -380,4 +384,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-13 22:24:53
+-- Dump completed on 2019-05-14 21:39:06
