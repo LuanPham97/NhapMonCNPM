@@ -24,9 +24,9 @@ DROP TABLE IF EXISTS `bophan`;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `bophan` (
   `MaBoPhan` varchar(3) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `TenBoPhan` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `TenBoPhan` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`MaBoPhan`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
