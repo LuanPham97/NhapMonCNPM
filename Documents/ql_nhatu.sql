@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.16, for Win64 (x86_64)
 --
 -- Host: localhost    Database: ql_nhatu
 -- ------------------------------------------------------
@@ -7,7 +7,7 @@
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+ SET NAMES utf8 ;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -21,7 +21,7 @@
 
 DROP TABLE IF EXISTS `bophan`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `bophan` (
   `MaBoPhan` varchar(3) COLLATE utf8_unicode_ci NOT NULL,
   `TenBoPhan` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
@@ -45,7 +45,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `canbo`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `canbo` (
   `MaCanBo` int(11) NOT NULL AUTO_INCREMENT,
   `HoTen` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
@@ -66,7 +66,7 @@ CREATE TABLE `canbo` (
 
 LOCK TABLES `canbo` WRITE;
 /*!40000 ALTER TABLE `canbo` DISABLE KEYS */;
-INSERT INTO `canbo` VALUES (1,'luan',NULL,'qly','cb01');
+INSERT INTO `canbo` VALUES (1,'name can bo',NULL,'qg','cb01');
 /*!40000 ALTER TABLE `canbo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -76,7 +76,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `hinhphat`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `hinhphat` (
   `MaHinhPhat` int(11) NOT NULL,
   `TenHinhPhat` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
@@ -100,7 +100,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `khenthuong`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `khenthuong` (
   `MaKhenThuong` varchar(3) COLLATE utf8_unicode_ci NOT NULL,
   `TenKhenThuong` varchar(30) CHARACTER SET utf8 DEFAULT NULL,
@@ -125,7 +125,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `khenthuong_phamnhan`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `khenthuong_phamnhan` (
   `MaKhenThuong` varchar(3) COLLATE utf8_unicode_ci NOT NULL,
   `MaPhamNhan` int(11) NOT NULL,
@@ -149,12 +149,42 @@ LOCK TABLES `khenthuong_phamnhan` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `lichthamnuoi`
+--
+
+DROP TABLE IF EXISTS `lichthamnuoi`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `lichthamnuoi` (
+  `IDLichThamNuoi` int(11) NOT NULL AUTO_INCREMENT,
+  `NgayThamNuoi` datetime DEFAULT NULL,
+  `PhamNhanDuocThamNuoi` int(11) DEFAULT NULL,
+  `CanBoGiamSat` int(11) DEFAULT NULL,
+  PRIMARY KEY (`IDLichThamNuoi`),
+  KEY `lichthamnuoi_phamnhan_idx` (`PhamNhanDuocThamNuoi`),
+  KEY `lichthamnuoi_canbo_idx` (`CanBoGiamSat`),
+  CONSTRAINT `lichthamnuoi_canbo` FOREIGN KEY (`CanBoGiamSat`) REFERENCES `canbo` (`MaCanBo`) ON DELETE SET NULL ON UPDATE CASCADE,
+  CONSTRAINT `lichthamnuoi_phamnhan` FOREIGN KEY (`PhamNhanDuocThamNuoi`) REFERENCES `phamnhan` (`MaPhamNhan`) ON DELETE SET NULL ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `lichthamnuoi`
+--
+
+LOCK TABLES `lichthamnuoi` WRITE;
+/*!40000 ALTER TABLE `lichthamnuoi` DISABLE KEYS */;
+INSERT INTO `lichthamnuoi` VALUES (1,'2019-05-18 00:00:00',2,1);
+/*!40000 ALTER TABLE `lichthamnuoi` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `loaitaikhoan`
 --
 
 DROP TABLE IF EXISTS `loaitaikhoan`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `loaitaikhoan` (
   `MaLoaiTaiKhoan` int(10) NOT NULL,
   `TenLoaiTaiKhoan` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
@@ -178,7 +208,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `mucdocaitao`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `mucdocaitao` (
   `MaMucDo` int(11) NOT NULL,
   `TenMucDo` varchar(30) CHARACTER SET utf8 DEFAULT NULL,
@@ -203,7 +233,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `mucdophamtoi`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `mucdophamtoi` (
   `MaMucDo` int(10) NOT NULL,
   `TenMucDo` varchar(30) CHARACTER SET utf8 DEFAULT NULL,
@@ -228,7 +258,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `nangkhieu`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `nangkhieu` (
   `MaNangKhieu` varchar(3) COLLATE utf8_unicode_ci NOT NULL,
   `TenNangKhieu` varchar(30) CHARACTER SET utf8 DEFAULT NULL,
@@ -253,7 +283,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `phamnhan`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `phamnhan` (
   `MaPhamNhan` int(11) NOT NULL AUTO_INCREMENT,
   `TenPhamNhan` varchar(50) CHARACTER SET utf8 NOT NULL,
@@ -268,6 +298,8 @@ CREATE TABLE `phamnhan` (
   `NgayRaTuDuKien` datetime DEFAULT NULL,
   `ThanNhan` int(11) DEFAULT NULL,
   `HinhPhat` int(11) DEFAULT NULL,
+  `HoatDongDeNghi` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
+  `CheDoTheoDoi` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
   PRIMARY KEY (`MaPhamNhan`),
   KEY `phamnhan_nangkhieu_idx` (`NangKhieu`),
   KEY `phamnhan_mucdophamtoi_idx` (`MucDoPhamToi`),
@@ -290,7 +322,7 @@ CREATE TABLE `phamnhan` (
 
 LOCK TABLES `phamnhan` WRITE;
 /*!40000 ALTER TABLE `phamnhan` DISABLE KEYS */;
-INSERT INTO `phamnhan` VALUES (2,'Luan',NULL,1,1,'2019-05-13 00:00:00','',1,'hat',NULL,NULL,1,3);
+INSERT INTO `phamnhan` VALUES (2,'Luan',NULL,1,1,'2019-05-13 00:00:00',_binary '',1,'hat',NULL,NULL,1,3,'tham gia văn nghệ','24/7');
 /*!40000 ALTER TABLE `phamnhan` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -300,7 +332,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `taikhoan`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `taikhoan` (
   `TenDangNhap` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
   `MatKhau` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
@@ -328,7 +360,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `thannhan`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `thannhan` (
   `MaThanNhan` int(11) NOT NULL AUTO_INCREMENT,
   `TenThanNhan` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
@@ -356,7 +388,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `tinhtrangsuckhoe`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `tinhtrangsuckhoe` (
   `MaTinhTrang` int(11) NOT NULL,
   `TenTinhTrang` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
@@ -384,4 +416,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-14 21:39:06
+-- Dump completed on 2019-05-18 17:27:32
