@@ -11,7 +11,7 @@
 	if(isset($_POST["txtTen"]) && ($_POST["txtTen"] != "")){
 		$ten = $_POST["txtTen"];
 		if(isset($_POST["txtMatKhau"]) && ($_POST["txtMatKhau"] != "")){
-			$matKhau = $_POST["txtMatKhau"];
+			$matKhau = md5($_POST["txtMatKhau"]);
 			$sql = "UPDATE taikhoan SET MatKhau='$matKhau' WHERE TenDangNhap='$ten'";
 			DataProvider::ExecuteQuery($sql);
 		}

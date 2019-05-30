@@ -3,7 +3,7 @@
 	Tên Thân Nhân: <input type="text" name="txtTenThanNhan" id="txtTenThanNhan"><br><br>
 	Số Điện Thoại:&nbsp&nbsp <input type="text" name="txtSoDienThoai" id="txtSoDienThoai"><br><br>
 	Tên Đăng Nhập: <input type="text" name="txtTenDangNhap" id="txtTenDangNhap"><br><br>
-	<input type="submit" value="Thêm">
+	<input type="submit" value="Thêm" class="checkmobile">
 </form>
 <?php
 	if(isset($_POST["txtTenThanNhan"]) && isset($_POST["txtSoDienThoai"]) && 
@@ -20,3 +20,5 @@
 
 	}
 ?>
+
+</script>

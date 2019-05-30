@@ -12,8 +12,8 @@
 		$matKhau = $_POST["txtMatKhau"];
 		$tenHienThi = $_POST["txtTenHienThi"];
 		$loaiTaiKhoan = $_POST["nbTaiKhoan"];
-
-		$sql = "INSERT INTO taikhoan (TenDangNhap, MatKhau, TenHienThi, MaLoaiTaiKhoan) VALUES ('$ten', '$matKhau', '$tenHienThi', $loaiTaiKhoan)";
+		$crypt = md5($matKhau);
+		$sql = "INSERT INTO taikhoan (TenDangNhap, MatKhau, TenHienThi, MaLoaiTaiKhoan) VALUES ('$ten', '$crypt', '$tenHienThi', $loaiTaiKhoan)";
 		DataProvider::ExecuteQuery($sql);
 		DataProvider::ChangeURL("index.php?a=18");
 	}
