@@ -154,5 +154,25 @@ if(isset($_GET["b"]) && $_GET["b"] == 4)
     DataProvider::ChangeURL(".././User/TiepNhan&PhongThich.php?a=9");
 }
 
+if(isset($_GET["b"]) && $_GET["b"] == 5)
+{
+    if(isset($_POST["nbMaPhamNhan"]) && isset($_POST["nbMaPhamNhan"])!="" )
+    {
+        $maPhamNhan = $_POST["nbMaPhamNhan"];
+        if(isset($_POST["txtNgayThamNuoi"]) && $_POST["txtNgayThamNuoi"] != ""
+        && isset($_POST["nbLichThamNuoi"]) && $_POST["nbLichThamNuoi"] != "" )
+        {
+            $NgayThamNuoi = $_POST["txtNgayThamNuoi"];
+            $IdLichThamNuoi = $_POST["nbLichThamNuoi"];
+                $sql = "UPDATE LichThamNuoi
+                        SET NgayThamNuoi = '$NgayThamNuoi'
+                        WHERE IDLichThamNuoi = '$IdLichThamNuoi' and PhamNhanDuocThamNuoi = '$maPhamNhan' ";
+                DataProvider::ExecuteQuery($sql);
+        }
+        
+    }
+    DataProvider::ChangeURL(".././User/TiepNhan&PhongThich.php?a=9");
+}
+
 
 ?>

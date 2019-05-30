@@ -37,7 +37,7 @@
                                 echo"<td width='6%'>".$row['NgayVaoTu']."</td>";
                                 echo"<td width='6%'>".$row['NgayRaTuDuKien']."</td>";
                                 echo"<td width='6%'>".$row['CheDoTheoDoi']."</td>";
-                                echo '<td width="9%"><b><a href="CanBo.php?a=8&id='. $row['MaPhamNhan'].'&id1='. $row['TenTinhTrang'].'&id2='. $row['TenMucDoPT'].'">Cập nhật</a></font></b></td>';                             
+                                echo '<td width="9%"><b><a style="font-size: 20px" href="CanBo.php?a=8&id='. $row['MaPhamNhan'].'&id1='. $row['TenTinhTrang'].'&id2='. $row['TenMucDoPT'].'">Cập nhật</a></font></b></td>';                             
                                 
                                 echo "</tr>";
                             }

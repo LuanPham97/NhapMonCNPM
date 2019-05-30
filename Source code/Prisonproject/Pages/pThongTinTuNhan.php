@@ -1,8 +1,8 @@
 <?php
 
             $sql ="SELECT * 
-                    FROM PhamNhan pn, HinhPhat hp, TinhTrangSucKhoe ttsk, MucDoPhamToi mdpt, MucDoCaiTao mdct, ThanNhan tn
-                    Where pn.HinhPhat = hp.MaHinhPhat and ttsk.MaTinhTrang = pn.TinhTrangSucKhoe 
+                    FROM PhamNhan pn, HinhPhat hp, TinhTrangSucKhoe ttsk, MucDoPhamToi mdpt, MucDoCaiTao mdct, ThanNhan tn, NangKhieu nk
+                    Where pn.HinhPhat = hp.MaHinhPhat and ttsk.MaTinhTrang = pn.TinhTrangSucKhoe  and nk.MaNangKhieu = pn.NangKhieu
                         and mdpt.MaMucDo = pn.MucDoPhamToi and mdct.MaMucDo = pn.MucDoCaiTao and tn.MaThanNhan = pn.ThanNhan";
             $result = DataProvider::ExecuteQuery($sql);
 
@@ -36,7 +36,7 @@
                             <th width='6%'>Gặp người thân</th>             
                             <th width='6%'>Năng khiếu</th>
                             <th width='6%'>Thân nhân</th>
-                            <th width='6%'></th>
+                          
                         </tr>";
                         
                             while($row = mysqli_fetch_array($result))
@@ -54,9 +54,8 @@
                                 echo"<td width='6%'>".$row['NgayKTDinhKy']."</td>";
                                 echo"<td width='6%'>".$row['TenMucDo']."</td>";
                                 echo"<td width='6%'>".$row['GapNguoiThan']."</td>";
-                                echo"<td width='6%'>".$row['NangKhieu']."</td>";
-                                echo"<td width='6%'>".$row['TenThanNhan']."</td>";
-                                // echo '<td width="6%"><b><a href="deleteprisoners.php?id=' . $row['MaPhamNhan'] . '">Chi Tiết</a></font></b></td>';                             
+                                echo"<td width='6%'>".$row['TenNangKhieu']."</td>";
+                                echo"<td width='6%'>".$row['TenThanNhan']."</td>";                   
                                 
                                 echo "</tr>";
                             }

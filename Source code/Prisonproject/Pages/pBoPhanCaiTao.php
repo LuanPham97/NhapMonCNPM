@@ -33,7 +33,7 @@
                                 echo"<td width='6%'>".$row['TenNangKhieu']."</td>";
                                 echo"<td width='6%'>".$row['HoatDongDeNghi']."</td>";
                                 echo"<td width='6%'>".$row['TenKhenThuong']."</td>";
-                                echo '<td width="9%"><b><a href="CanBo.php?a=12&id='.$row['MaPhamNhan'].'">Cập nhật</a></font></b></td>';                             
+                                echo '<td width="9%"><b><a style="font-size: 20px" href="CanBo.php?a=12&id='.$row['MaPhamNhan'].'">Cập nhật</a></font></b></td>';                             
                                 
                                 echo "</tr>";
                             }

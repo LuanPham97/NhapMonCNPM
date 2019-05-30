@@ -13,7 +13,7 @@
                 <td>
                     <form action=".././phpExcel/Export.php" method="POST" " >
                     <tr>
-                            <td width="50%"><button name="btnLichThamNuoi"><a href="TiepNhan&PhongThich.php?a=14">Lên lịch thăm nuôi</a></button></td>
+                            <td width="50%"></td>
                             <td width="15%"><button type="submit" name="btnTiepNhan">Xuất danh sách PN tiếp nhận</button></td>
                             <td width="15%"><button type="submit" name="btnPhongThich">Xuất danh sách PN phóng thích</button></td>
                     </tr>
@@ -41,7 +41,7 @@
                             <th width='6%'>Chế độ theo dõi</th>
                             <th width='6%'>Thân Nhân</th>
                             <th width='6%'>Địa Chỉ Thân Nhân</th>
-                            <th width='6%'></th>
+                            <th width='6%'>Thao Tác</th>
                         </tr>";
                         
                             while($row = mysqli_fetch_array($result))
@@ -62,7 +62,12 @@
                                 echo"<td width='6%'>".$row['CheDoTheoDoi']."</td>";
                                 echo"<td width='6%'>".$row['TenThanNhan']."</td>";
                                 echo"<td width='6%'>".$row['DiaChiThanNhan']."</td>";
-                                echo '<td width="9%"><b><a href="TiepNhan&PhongThich.php?a=13&id0='.$row['MaHinhPhat'].'&id='.$row['MaPhamNhan'].'&id1='.$row['TenTinhTrang'].'&id2='.$row['TenMucDoPT'].'&id3='.$row['MaThanNhan'].'">Cập nhật</a></font></b></td>';                             
+                                echo '<td width="9%">
+                                <b><a  style="font-size: 20px" href="TiepNhan&PhongThich.php?a=13&id0='.$row['MaHinhPhat'].'&id='.$row['MaPhamNhan'].'&id1='.$row['TenTinhTrang'].'&id2='.$row['TenMucDoPT'].'&id3='.$row['MaThanNhan'].'">Cập nhật</a></b>
+                                <br>
+                                <br>
+                                <b><a  style="font-size: 17px" href="TiepNhan&PhongThich.php?a=14&id='.$row['MaPhamNhan'].'">Lên Lịch Thăm Nuôi</a></b>
+                                </td>';                             
                                 
                                 echo "</tr>";
                             }

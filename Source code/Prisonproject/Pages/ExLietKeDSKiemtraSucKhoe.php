@@ -40,7 +40,7 @@
                         echo"<td width='6%'> $ngayVao</td>";
                         echo"<td width='6%'> $ngayRa </td>";
                         echo"<td width='6%'> $ngayKiemTra </td>";                        
-                        echo"<td width='6%'><b><a href='Yte.php?a=5&id=$maPhamNhan'>Cập nhật</a></b></td>";
+                        echo"<td width='6%'><b><a style='font-size: 20px' href='Yte.php?a=5&id=$maPhamNhan'>Cập nhật</a></b></td>";
                     echo "</tr>";
                     }
         echo"</table>";

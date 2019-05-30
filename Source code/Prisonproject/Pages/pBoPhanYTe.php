@@ -41,8 +41,6 @@
                                 echo"<td width='6%'>".$row['NgayVaoTu']."</td>";
                                 echo"<td width='6%'>".$row['NgayRaTuDuKien']."</td>";
                                 echo"<td width='6%'>".$row['NgayKTDinhKy']."</td>";
-                                // echo '<td width="6%"><b><a href="deleteprisoners.php?id=' . $row['MaPhamNhan'] . '">Chi Tiết</a></font></b></td>';                             
-                                
                                 echo "</tr>";
                             }
             echo"</table>";
