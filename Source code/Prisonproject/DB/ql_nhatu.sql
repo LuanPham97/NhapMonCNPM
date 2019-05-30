@@ -289,8 +289,12 @@ CREATE TABLE `taikhoan` (
 --
 
 INSERT INTO `taikhoan` (`TenDangNhap`, `MatKhau`, `TenHienThi`, `MaLoaiTaiKhoan`) VALUES
-('admin', '21232f297a57a5a743894a0e4a801fc3', 'Admin', 0);
-
+('admin', '21232f297a57a5a743894a0e4a801fc3', 'Admin', 0),
+('tk2', 'b79c9d8b7ce99df33cf3fa5bb96d0c51', 'Tai Khoan 2', 2),
+('tk3', 'f3d5d8fa1baa65a4ae3d01cd383e94da', 'Tai Khoan 3', 3),
+('tk5', '625fdf9120aab33774083c04c6e346ed', 'Tai Khoan 5', 5),
+('tk6', '14e092db9ab16bad7f6eef1e1bb8ae98', 'Tai Khoan 6', 6),
+('tk7', '650638e5c645aa42aeacc3a1177a9c80', 'Tai Khoan 7', 7);
 -- --------------------------------------------------------
 
 --
