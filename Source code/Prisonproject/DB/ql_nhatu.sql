@@ -289,12 +289,7 @@ CREATE TABLE `taikhoan` (
 --
 
 INSERT INTO `taikhoan` (`TenDangNhap`, `MatKhau`, `TenHienThi`, `MaLoaiTaiKhoan`) VALUES
-('admin', 'admin', 'Admin', 0),
-('cb01', '123', 'Cán Bộ 01', 5),
-('ct01', '123', 'Cải Tạo 01', 6),
-('tn01', '123', 'Thân Nhân 01', 7),
-('tnpt01', '123', 'TN&PT', 3),
-('yte01', '123', 'Y Tế 01', 2);
+('admin', '21232f297a57a5a743894a0e4a801fc3', 'Admin', 0);
 
 -- --------------------------------------------------------
 
