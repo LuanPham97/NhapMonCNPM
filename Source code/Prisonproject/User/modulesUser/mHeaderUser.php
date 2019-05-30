@@ -7,8 +7,7 @@
            
             <td width="600" bgcolor="whitesmoke" colspan="3" align="center">
                 <!-- <a href="index.php"><b>Trang chủ</b></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp; -->
-                <a href="location.php"><b>Thông tin liên hệ</b></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
-                <a href=""><b>Góp ý</b></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href=".././Pages/pThongTinLienHe.php"><b>Thông tin liên hệ</b></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
             </td>
             
             <td >

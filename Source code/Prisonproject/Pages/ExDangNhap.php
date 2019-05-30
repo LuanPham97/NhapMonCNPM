@@ -2,7 +2,7 @@
         if(isset($_POST["txtUS"]) && isset($_POST["txtPWD"]))
         {
             $us = $_POST["txtUS"];
-            $pwd = md5($_POST["txtPWD"]);
+            $pwd = $_POST["txtPWD"];
 
            
             $sql = "SELECT TenHienThi, MaLoaiTaiKhoan

@@ -20,7 +20,6 @@
         <th width='6%'>Gặp người thân</th>             
         <th width='6%'>Năng khiếu</th>
         <th width='6%'>Thân nhân</th>
-        <th width='6%'></th>
         </tr>";
         echo"<tr bgcolor='white' align='center'>";
 

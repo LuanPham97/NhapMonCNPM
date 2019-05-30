@@ -7,8 +7,8 @@
             <td width="50"></td>
             <td width="790" bgcolor="whitesmoke" colspan="3" align="center">
                 <a href="index.php"><b>Trang chủ</b></a> |
-                <a href="location.php"><b>Thông tin liên hệ</b></a> |
-                <a href=""><b>Góp ý</b></a> 
+                <a href="index.php?a=2"><b>Thông tin liên hệ</b></a> |
+                <a href="index.php?a=2"><b>Góp ý</b></a> 
             </td>
             <td width="100"></td>   
         </tr>

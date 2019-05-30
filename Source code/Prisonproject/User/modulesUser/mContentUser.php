@@ -38,7 +38,10 @@
             break;
         case 14:
             include (".././pages/pLichThamNuoi.php");
-            break;        
+            break;
+        case 15:
+            include (".././pages/ExThamNuoi.php");
+            break;         
         default:
             include (".././pages/pThongTinTuNhan.php");
             break;

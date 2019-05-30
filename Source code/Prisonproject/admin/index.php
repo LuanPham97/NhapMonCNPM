@@ -1,7 +1,9 @@
-<?php 
-    include_once ('../lib/DataProvider.php');
-?>
+<?php
+    session_start();
 
+include_once ('.././lib/DataProvider.php');
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,10 +25,9 @@
         <?php include ('Modules/mContent.php'); ?>
     </div>
     <div class="Footer">
-        <?php include ('/modules/mFooter.php'); ?>             
+        <?php include ('Modules/mFooter.php'); ?>             
     </div>
 </div>
-
 
 </body>
 </html>

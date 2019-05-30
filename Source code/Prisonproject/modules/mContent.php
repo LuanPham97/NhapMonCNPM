@@ -6,6 +6,9 @@
                             $a = (isset($_GET['a'])) ? $_GET['a'] : 1; 
 
                             switch ($a) {
+                                case 2:
+                                    include ("pages/Location.php");
+                                    break;
                                 case 3:
                                     include ("pages/ExDangNhap.php");
                                     break;
