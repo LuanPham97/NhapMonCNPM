@@ -1,4 +1,4 @@
-﻿-- MySQL dump 10.13  Distrib 8.0.16, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.16, for Win64 (x86_64)
 --
 -- Host: localhost    Database: ql_nhatu
 -- ------------------------------------------------------
@@ -23,21 +23,11 @@ DROP TABLE IF EXISTS `bophan`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `bophan` (
-  `MaBoPhan` varchar(3) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `TenBoPhan` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `MaBoPhan` varchar(3) COLLATE utf8_unicode_ci NOT NULL,
+  `TenBoPhan` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`MaBoPhan`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `bophan`
---
-
-LOCK TABLES `bophan` WRITE;
-/*!40000 ALTER TABLE `bophan` DISABLE KEYS */;
-INSERT INTO `bophan` VALUES ('cd','cấp dưỡng'),('ct','cải tạo'),('qg','quản giáo'),('qly','quản lý'),('tnp','tiếp nhận và phóng thích'),('yte','y tế');
-/*!40000 ALTER TABLE `bophan` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `canbo`
@@ -61,16 +51,6 @@ CREATE TABLE `canbo` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `canbo`
---
-
-LOCK TABLES `canbo` WRITE;
-/*!40000 ALTER TABLE `canbo` DISABLE KEYS */;
-INSERT INTO `canbo` VALUES (1,'name can bo',NULL,'qg','cb01');
-/*!40000 ALTER TABLE `canbo` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `hinhphat`
 --
 
@@ -83,16 +63,6 @@ CREATE TABLE `hinhphat` (
   PRIMARY KEY (`MaHinhPhat`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `hinhphat`
---
-
-LOCK TABLES `hinhphat` WRITE;
-/*!40000 ALTER TABLE `hinhphat` DISABLE KEYS */;
-INSERT INTO `hinhphat` VALUES (0,'tù có thời hạn'),(1,'tù chung thân'),(2,'tử hình'),(3,'tù treo');
-/*!40000 ALTER TABLE `hinhphat` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `khenthuong`
@@ -108,16 +78,6 @@ CREATE TABLE `khenthuong` (
   PRIMARY KEY (`MaKhenThuong`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `khenthuong`
---
-
-LOCK TABLES `khenthuong` WRITE;
-/*!40000 ALTER TABLE `khenthuong` DISABLE KEYS */;
-INSERT INTO `khenthuong` VALUES ('ctt','cải tạo tốt',2);
-/*!40000 ALTER TABLE `khenthuong` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `khenthuong_phamnhan`
@@ -140,15 +100,6 @@ CREATE TABLE `khenthuong_phamnhan` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `khenthuong_phamnhan`
---
-
-LOCK TABLES `khenthuong_phamnhan` WRITE;
-/*!40000 ALTER TABLE `khenthuong_phamnhan` DISABLE KEYS */;
-/*!40000 ALTER TABLE `khenthuong_phamnhan` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `lichthamnuoi`
 --
 
@@ -157,7 +108,7 @@ DROP TABLE IF EXISTS `lichthamnuoi`;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `lichthamnuoi` (
   `IDLichThamNuoi` int(11) NOT NULL AUTO_INCREMENT,
-  `NgayThamNuoi` datetime DEFAULT NULL,
+  `NgayThamNuoi` date DEFAULT NULL,
   `PhamNhanDuocThamNuoi` int(11) DEFAULT NULL,
   `CanBoGiamSat` int(11) DEFAULT NULL,
   PRIMARY KEY (`IDLichThamNuoi`),
@@ -167,16 +118,6 @@ CREATE TABLE `lichthamnuoi` (
   CONSTRAINT `lichthamnuoi_phamnhan` FOREIGN KEY (`PhamNhanDuocThamNuoi`) REFERENCES `phamnhan` (`MaPhamNhan`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `lichthamnuoi`
---
-
-LOCK TABLES `lichthamnuoi` WRITE;
-/*!40000 ALTER TABLE `lichthamnuoi` DISABLE KEYS */;
-INSERT INTO `lichthamnuoi` VALUES (1,'2019-05-18 00:00:00',2,1);
-/*!40000 ALTER TABLE `lichthamnuoi` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `loaitaikhoan`
@@ -191,16 +132,6 @@ CREATE TABLE `loaitaikhoan` (
   PRIMARY KEY (`MaLoaiTaiKhoan`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `loaitaikhoan`
---
-
-LOCK TABLES `loaitaikhoan` WRITE;
-/*!40000 ALTER TABLE `loaitaikhoan` DISABLE KEYS */;
-INSERT INTO `loaitaikhoan` VALUES (0,'admin'),(1,'Quản giáo'),(2,'Y tế'),(3,'Tiếp nhân & phóng thích'),(4,'Cấp dưỡng'),(5,'Quản lý'),(6,'Cải tạo'),(7,'Thân nhân');
-/*!40000 ALTER TABLE `loaitaikhoan` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `mucdocaitao`
@@ -218,16 +149,6 @@ CREATE TABLE `mucdocaitao` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `mucdocaitao`
---
-
-LOCK TABLES `mucdocaitao` WRITE;
-/*!40000 ALTER TABLE `mucdocaitao` DISABLE KEYS */;
-INSERT INTO `mucdocaitao` VALUES (1,'Xuất sắc',NULL),(2,'Tốt',NULL),(3,'Khá',NULL),(4,'Trung bình',NULL),(5,'Yếu',NULL);
-/*!40000 ALTER TABLE `mucdocaitao` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `mucdophamtoi`
 --
 
@@ -241,16 +162,6 @@ CREATE TABLE `mucdophamtoi` (
   PRIMARY KEY (`MaMucDo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `mucdophamtoi`
---
-
-LOCK TABLES `mucdophamtoi` WRITE;
-/*!40000 ALTER TABLE `mucdophamtoi` DISABLE KEYS */;
-INSERT INTO `mucdophamtoi` VALUES (1,'Đặc biệt nghiêm trọng',NULL),(2,'Rất nghiêm trọng',NULL),(3,'Nghiêm trọng',NULL),(4,'Ít nghiêm trọng',NULL);
-/*!40000 ALTER TABLE `mucdophamtoi` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `nangkhieu`
@@ -268,16 +179,6 @@ CREATE TABLE `nangkhieu` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `nangkhieu`
---
-
-LOCK TABLES `nangkhieu` WRITE;
-/*!40000 ALTER TABLE `nangkhieu` DISABLE KEYS */;
-INSERT INTO `nangkhieu` VALUES ('dan','chơi đàn',NULL),('hat','ca hát',NULL),('kch','kể chuyện',NULL),('mc','làm MC',NULL);
-/*!40000 ALTER TABLE `nangkhieu` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `phamnhan`
 --
 
@@ -290,12 +191,12 @@ CREATE TABLE `phamnhan` (
   `DiaChi` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
   `TinhTrangSucKhoe` int(11) DEFAULT NULL,
   `MucDoPhamToi` int(10) DEFAULT NULL,
-  `NgayKTDinhKy` datetime DEFAULT NULL,
+  `NgayKTDinhKy` date DEFAULT NULL,
   `GapNguoiThan` bit(1) DEFAULT NULL,
   `MucDoCaiTao` int(11) DEFAULT NULL,
   `NangKhieu` varchar(3) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `NgayVaoTu` datetime DEFAULT NULL,
-  `NgayRaTuDuKien` datetime DEFAULT NULL,
+  `NgayVaoTu` date DEFAULT NULL,
+  `NgayRaTuDuKien` date DEFAULT NULL,
   `ThanNhan` int(11) DEFAULT NULL,
   `HinhPhat` int(11) DEFAULT NULL,
   `HoatDongDeNghi` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
@@ -317,16 +218,6 @@ CREATE TABLE `phamnhan` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `phamnhan`
---
-
-LOCK TABLES `phamnhan` WRITE;
-/*!40000 ALTER TABLE `phamnhan` DISABLE KEYS */;
-INSERT INTO `phamnhan` VALUES (2,'Luan',NULL,1,1,'2019-05-13 00:00:00',_binary '',1,'hat',NULL,NULL,1,3,'tham gia văn nghệ','24/7');
-/*!40000 ALTER TABLE `phamnhan` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `taikhoan`
 --
 
@@ -336,23 +227,13 @@ DROP TABLE IF EXISTS `taikhoan`;
 CREATE TABLE `taikhoan` (
   `TenDangNhap` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
   `MatKhau` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
-  `TenHienThi` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
+  `TenHienThi` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `MaLoaiTaiKhoan` int(10) DEFAULT NULL,
   PRIMARY KEY (`TenDangNhap`),
   KEY `taikhoan_loaitaikhoan_idx` (`MaLoaiTaiKhoan`),
   CONSTRAINT `taikhoan_loaitaikhoan` FOREIGN KEY (`MaLoaiTaiKhoan`) REFERENCES `loaitaikhoan` (`MaLoaiTaiKhoan`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `taikhoan`
---
-
-LOCK TABLES `taikhoan` WRITE;
-/*!40000 ALTER TABLE `taikhoan` DISABLE KEYS */;
-INSERT INTO `taikhoan` VALUES ('admin','admin','Admin',0),('cb01','123','cán bộ 01',5),('tn01','123','thân nhân 01',7);
-/*!40000 ALTER TABLE `taikhoan` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `thannhan`
@@ -373,16 +254,6 @@ CREATE TABLE `thannhan` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `thannhan`
---
-
-LOCK TABLES `thannhan` WRITE;
-/*!40000 ALTER TABLE `thannhan` DISABLE KEYS */;
-INSERT INTO `thannhan` VALUES (1,'Luan\'s thân nhân',NULL,'tn01');
-/*!40000 ALTER TABLE `thannhan` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `tinhtrangsuckhoe`
 --
 
@@ -396,16 +267,6 @@ CREATE TABLE `tinhtrangsuckhoe` (
   PRIMARY KEY (`MaTinhTrang`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `tinhtrangsuckhoe`
---
-
-LOCK TABLES `tinhtrangsuckhoe` WRITE;
-/*!40000 ALTER TABLE `tinhtrangsuckhoe` DISABLE KEYS */;
-INSERT INTO `tinhtrangsuckhoe` VALUES (1,'Bình thường',NULL),(2,'Sốt',NULL),(3,'Ho',NULL),(4,'Suy nhược',NULL);
-/*!40000 ALTER TABLE `tinhtrangsuckhoe` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -416,4 +277,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-18 17:40:23
+-- Dump completed on 2019-05-30 19:42:21
