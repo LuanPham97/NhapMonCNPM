@@ -1,4 +1,4 @@
-<a href=".././index.php">
+<a href="">
                 <img src="../img/Banner.gif" alt="image found" class="logo">
 </a>    
 <div class="header">

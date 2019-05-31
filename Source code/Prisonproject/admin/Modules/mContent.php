@@ -64,6 +64,9 @@
 		case 21:
 			include ('Pages/pLietKeTaiKhoan.php');
 			break;
+		case 22:
+			include ('Pages/Location.php');
+			break;	
 		default:
 			# code...
 			break;

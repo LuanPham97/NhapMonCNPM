@@ -1,0 +1,211 @@
+﻿.container{
+    width:990px;
+    margin: auto;
+    /* background-color: #cc66cc; */
+}
+
+.header  a{
+    background-color: whitesmoke;
+    width: 990px;
+    height: 285px;
+    text-decoration: none;
+    color: black;
+    /* background: url("img/bg-header.jpg") repeat-x; */
+    font-size: 31px;
+}
+
+
+.aaa font a{
+    color:pink;
+    text-decoration: none;
+}
+
+.content{
+    background-color: #fff;
+    width: 987px; /*đã fix lại content cho phù hợp với 990px của header*/
+    min-height: 300px;
+    float: left;
+    border: 1px solid #6688cc;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.footer{
+    /* background-color: #6633cc; */
+    clear:both;
+	background:#C80000;
+	padding: 8px 0px 10px 0px;/*fix lại footer*/
+	text-align:center;
+	font-weight:bold;
+    color:#FFF;
+    width :990px;
+    border: 1px solid #c80000;/*thêm thuộc tính mới*/;
+}
+
+
+
+
+/* ----------------------Thanh trượt----------------------------------------------------- */
+/*Slider*/
+
+.sliderboxHead{
+    padding-top: 10px;
+    background-color: white;
+    width: 990px;
+    height: 300px;
+    overflow: hidden;
+}
+
+#sliderbox{
+    position: relative;
+    width: 4950px; /*đã fix lại slider*/
+    animation-name: slideranimation;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+}
+
+#sliderbox img{
+    float: left;
+}
+
+@keyframes slideranimation{ /*Đã fix lại slider*/
+    0%
+    {
+        left: 0px;
+    }
+    20%
+    {
+        left: 0px;
+    }
+    25%
+    {
+        left: -990px;
+    }
+    45%
+    {
+        left: -990px;
+    }
+    50%
+    {
+        left:-1980px;
+    }
+    70%
+    {
+        left: -1980px;
+    }
+    75%
+    {
+        left: -2970px;
+    }
+    95%
+    {
+        left: -2970px;
+    }
+    100%
+    {
+        left: -3960px;
+    }
+    115%
+    {
+        left: -3960px;
+    }
+    120%
+    {
+        left:-4950px;
+    }
+    130%
+    {
+        left:-4950px;
+    }
+
+}
+/* ------------------kết thúc thanh trượt------------------- */
+
+/* xử lý form đăng nhập*/
+.ex select{
+    border-radius: 7px;
+}
+.ex input{
+    border-radius: 7px;
+}
+
+/*Xử lý form tìm kiếm*/
+
+.formTimKiem{
+    float: right;
+    margin: 0 0 40px 0;
+
+}
+
+.TimKiem{
+    font-weight:bold;
+    font-family:"Palatino Linotype";
+    color: #34495e;
+}
+
+.formTimKiem input{
+    border-radius: 10%;
+    
+}
+
+.formTimKiem button{
+    border-radius: 50%;
+}
+
+/*xử lý kết quả tìm kiếm tù nhân*/
+
+.search h2{
+    margin: 50px 50px 0px 0px;
+    color: #c80000;
+}
+
+/*Xử lý fomr đăng nhập */
+
+.frmLogin input{
+    border-radius: 5px;
+    font-weight:bold;
+    font-family:"Palatino Linotype";
+    color: #34495e;
+    
+}
+
+/*Xử Lý form Liệt Kê Danh sách kiểm tra sức khỏe (bộ y tế)*/
+.formLietKe{
+    float: right;
+    margin: 0 0 40px 0;
+}
+.formLietKe input{
+        border-radius: 10%;
+}
+.formLietKe button{
+    border-radius: 50%;
+}
+.LietKeDSKTSucKhoe{
+    font-weight:bold;
+    font-family:"Palatino Linotype";
+    color: #34495e;
+}
+
+/*Xử lý form Xuất danh sách*/
+
+.formXuat{
+    float: right;
+    margin: 20px 0px 0px 0px;
+
+}
+
+.formXuat button {
+    font-weight:bold;
+    font-family:"Palatino Linotype";
+    color: #34495e;
+    border-radius: 0%;
+}
+
+.formXuat a{
+    font-weight:bold;
+    font-family:"Palatino Linotype";
+    color: #34495e;
+    border-radius: 0%;
+    font-size: 25px;
+}
+

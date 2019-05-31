@@ -8,7 +8,7 @@
         font-size: 25px;
     }
 </style>
-<form action="pNhanThongTinLienHe.php" method="POST" >
+<form action="Pages/pNhanThongTinLienHe.php" method="POST" >
     <table width="100%" border="0" align="center" class="formLienHe"> 
         <tr>
             <td> <b> HỆ THỐNG QUẢN LÝ TÙ NHÂN XIN HÂN HẠNH ĐƯỢC HỖ TRỢ</b></td>

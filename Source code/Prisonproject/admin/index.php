@@ -23,7 +23,7 @@
         <?php include ('Modules/mContent.php'); ?>
     </div>
     <div class="Footer">
-        <?php include ('/modules/mFooter.php'); ?>             
+        <?php include ('Modules/mFooter.php'); ?>             
     </div>
 </div>
 
