@@ -4,8 +4,11 @@
 	Thông Tin Cán Bộ Cần Cập Nhật:<br><br>
 	Tên Cán Bộ: <input type="text" name="txtTen" id="txtTen"><br><br>
 	Số Điện Thoại: <input type="text" name="txtSoDienThoai" id="txtSoDienThoai"><br><br>
-	Bộ Phận: <input type="text" name="txtBoPhan" id="txtBoPhan"><br><br>
+	Bộ Phận: <input type="text" name="txtBoPhan" id="txtBoPhan"><br>(qlv-Quản lý, tnp-Tiếp Nhận và Phóng Thích, yte-Y tế, qg-Quản Giáo, ct-Cải Tạo, cd-Cấp Dưỡng)<br><br>
 	Tên Đăng Nhập: <input type="text" name="txtTenDangNhap" id="txtTenDangNhap"><br><br>
+	Mật Khẩu: <input type="password" name="pwMatKhau" id="pwMatKhau"><br><br>
+	<input type="checkbox" onclick="myFunction()">Hiển Thị Mật Khẩu <br><br>
+	Tên Hiển Thị: <input type="text" name="txtTenHienThi" id="txtTenHienThi"><br><br>
 	<input type="submit" value="Cập Nhật">
 </form>
 <?php
@@ -28,11 +31,32 @@
 		}
 		if(isset($_POST["txtTenDangNhap"]) && ($_POST["txtTenDangNhap"] != "")){
 			$tenDangNhap = $_POST["txtTenDangNhap"];
-			$sql = "UPDATE canbo SET TenDangNhap = '$tenDangNhap' WHERE MaCanBo = '$id'";
+			$sql = "UPDATE canbo cb, taikhoan tk SET tk.TenDangNhap = '$tenDangNhap'  WHERE cb.MaCanBo='$id' and cb.TenDangNhap = tk.TenDangNhap";
 			DataProvider::ExecuteQuery($sql);
+		}
+		if(isset($_POST["txtTenHienThi"]) && ($_POST["txtTenHienThi"] != "")){
+			$tenHienThi = $_POST["txtTenHienThi"];
+			$sql = "UPDATE canbo cb, taikhoan tk SET tk.TenHienThi = '$tenHienThi'  WHERE cb.MaCanBo='$id' and cb.TenDangNhap = tk.TenDangNhap";
+			DataProvider::ExecuteQuery($sql);
+		}
+		if(isset($_POST["pwMatKhau"]) && ($_POST["pwMatKhau"] != "")){
+			$matKhau = md5($_POST["pwMatKhau"]);
+			$sql = "UPDATE canbo cb, taikhoan tk SET tk.MatKhau= '$matKhau'  WHERE cb.MaCanBo='$id' and cb.TenDangNhap = tk.TenDangNhap";
 		}
 		DataProvider::ChangeURL("index.php?a=14");
 
 	}
 
 ?>
+
+
+<script>
+function myFunction() {
+  var x = document.getElementById("pwMatKhau");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
